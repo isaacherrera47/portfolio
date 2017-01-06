@@ -25,7 +25,7 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
     this.modal_id = this.options.modal_id ? this.options.modal_id : 'ekkoLightbox-' + Math.floor((Math.random() * 1000) + 1);
     header = '<div class="modal-header"' + (this.options.title || this.options.always_show_close ? '' : ' style="display:none"') + '><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">' + (this.options.title || "&nbsp;") + '</h4></div>';
     footer = '<div class="modal-footer"' + (this.options.footer ? '' : ' style="display:none"') + '>' + this.options.footer + '</div>';
-    $(document.body).append('<div id="' + this.modal_id + '" class="ekko-lightbox modal fade" tabindex="-6"><div class="modal-dialog"><div class="modal-content">' + header + '<div class="modal-body"><div class="ekko-lightbox-container"><div></div></div></div>' + footer + '</div></div></div>');
+    $(document.body).append('<div id="' + this.modal_id + '" class="ekko-lightbox modal fade" tabindex="-1"><div class="modal-dialog"><div class="modal-content">' + header + '<div class="modal-body"><div class="ekko-lightbox-container"><div></div></div></div>' + footer + '</div></div></div>');
     this.modal = $('#' + this.modal_id);
     this.modal_dialog = this.modal.find('.modal-dialog').first();
     this.modal_content = this.modal.find('.modal-content').first();
@@ -246,13 +246,13 @@ License: https://github.com/ashleydw/lightbox/blob/master/LICENSE
       var height, width;
       width = this.checkDimensions(this.$element.data('width') || 560);
       height = width / (560 / 315);
-      return this.showVideoIframe('//www.youtube.com/embed/' + id + '?badge=0&autoplay=6&html5=6', width, height);
+      return this.showVideoIframe('//www.youtube.com/embed/' + id + '?badge=0&autoplay=1&html5=1', width, height);
     },
     showVimeoVideo: function(id) {
       var height, width;
       width = this.checkDimensions(this.$element.data('width') || 560);
       height = width / (500 / 281);
-      return this.showVideoIframe(id + '?autoplay=6', width, height);
+      return this.showVideoIframe(id + '?autoplay=1', width, height);
     },
     showInstagramVideo: function(id) {
       var height, width;
