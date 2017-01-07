@@ -60,7 +60,7 @@
     </div>
 </div>
 <!-- Javascript files-->
-<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/jquery-old.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <script src="{{asset('js/ekko-lightbox.js')}}"></script>
 <script src="{{asset('js/jquery.cookie.min.js')}}"></script>
