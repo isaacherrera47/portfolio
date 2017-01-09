@@ -40,7 +40,7 @@ gulp.task('styles', function () {
             sass: paths.styles.sass,
             includePaths: paths.styles.includePaths
         }))
-        .pipe($.autoprefixer(['last 6 version', '> 6%', 'ff >= 20', 'ie >= 8', 'opera >= 12', 'Android >= 2.2'], {cascade: true}))
+        .pipe($.autoprefixer(['last 1 version', '> 1%', 'ff >= 20', 'ie >= 8', 'opera >= 12', 'Android >= 2.2'], {cascade: true}))
         .pipe($.header(banner, {pkg: pkg, description: 'Colors plugin stylesheet for Trumbowyg editor'}))
         .pipe(gulp.dest('../../dist/plugins/colors/ui/'))
         .pipe($.size({title: 'trumbowyg.colors.css'}))
