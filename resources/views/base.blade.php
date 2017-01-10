@@ -60,10 +60,10 @@
     </div>
 </div>
 <!-- Javascript files-->
-<script src="{{asset('js/jquery-old.min.js')}}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
-<script src="{{asset('js/ekko-lightbox.js')}}"></script>
 <script src="{{asset('js/jquery.cookie.min.js')}}"></script>
+<script src="{{asset('js/ekko-lightbox.js')}}"></script>
 <script src="{{asset('js/jquery.scrollTo.min.js')}}"></script>
 <script src="{{asset('js/masonry.pkgd.min.js')}}"></script>
 <script src="{{asset('js/imagesloaded.pkgd.min.js')}}"></script>
