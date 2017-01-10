@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/owl.theme.css')}}">
     <link rel="stylesheet" href="{{asset('css/style.blue.css')}}" id="theme-stylesheet">
     <!-- Favicon-->
-    <link rel="icon" href="{{asset('favicon.ico')}}">
+    <link rel="icon" href="{{asset('favicon.png')}}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
