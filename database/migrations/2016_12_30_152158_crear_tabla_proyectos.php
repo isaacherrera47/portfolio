@@ -17,6 +17,8 @@ class CrearTablaProyectos extends Migration
             $table->string('nombre',100);
             $table->string('extracto');
             $table->string('portada')->nullable();
+            $table->smallInteger('prioridad');
+            $table->string('lenguaje');
             $table->text('contenido');
             $table->timestamps();
         });

@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/style.blue.css')}}" id="theme-stylesheet">
     <link rel="stylesheet" href="{{asset('trumbowyg/ui/trumbowyg.min.css')}}">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="">
+    <link rel="shortcut icon" href="{{asset('favicon.png')}}">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -32,7 +32,8 @@
             </div>
             <div class="form-group">
                 <label for="extracto">Extracto</label>
-                <textarea class="form-control" id="extracto" name="extracto" rows="3" placeholder="Introduce una descripcion del proyecto desarrollado" required></textarea>
+                <textarea class="form-control" id="extracto" name="extracto" rows="3"
+                          placeholder="Introduce una descripcion del proyecto desarrollado" required></textarea>
             </div>
             <div class="form-group">
                 <label for="portada">Portada</label>
@@ -43,6 +44,20 @@
                 <label for="slider">Slider</label>
                 <input type="file" multiple id="slider" name="slider[]" required>
                 <p class="help-block">Las imagenes que irán en el detalle.</p>
+            </div>
+            <div class="form-group">
+                <label for="prioridad">Prioridad</label>
+                <select class="form-control" name="prioridad" id="prioridad">
+                    <option value="1">Baja</option>
+                    <option value="2">Media baja</option>
+                    <option selected value="3">Media</option>
+                    <option value="4">Importante</option>
+                    <option value="5">Ver primero</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lenguaje">Lenguaje de programación</label>
+                <input class="form-control" type="text" name="lenguaje" id="lenguaje" required>
             </div>
             <div class="form-group">
                 <label for="texto_contenido">Contenido</label>
@@ -59,7 +74,7 @@
 <script src="{{asset('trumbowyg/langs/es.min.js')}}"></script>
 <script>
     $('#texto_contenido').trumbowyg({
-        lang : 'es'
+        lang: 'es'
     });
     (function (b, o, i, l, e, r) {
         b.GoogleAnalyticsObject = l;

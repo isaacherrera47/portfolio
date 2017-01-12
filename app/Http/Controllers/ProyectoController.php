@@ -22,7 +22,7 @@ class ProyectoController extends Controller
         if (!($permiso = $this->isUserValid($request))) {
             return view('permisos.index');
         }
-        $proyectos = Proyecto::all();
+        $proyectos = Proyecto::all()->sortByDesc('prioridad');
         Return view('proyectos.index', ['proyectos' => $proyectos, 'permiso' => $permiso]);
     }
 
@@ -53,6 +53,8 @@ class ProyectoController extends Controller
         $proyecto->nombre = $request->input('nombre');
         $proyecto->extracto = $request->input('extracto');
         $proyecto->contenido = $request->input('contenido');
+        $proyecto->prioridad = $request->input('prioridad');
+        $proyecto->lenguaje = $request->input('lenguaje');
         $proyecto->save();
 
         $imagen = $request->file('portada');
