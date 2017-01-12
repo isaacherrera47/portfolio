@@ -18,12 +18,9 @@ class CrearTablaProyectos extends Migration
             $table->string('extracto');
             $table->string('portada')->nullable();
             $table->text('contenido');
-            $table->timestamps();
-        });
-
-        Schema::table('proyectos', function (Blueprint $table) {
             $table->smallInteger('prioridad');
             $table->string('lenguaje');
+            $table->timestamps();
         });
     }
 
