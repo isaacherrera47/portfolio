@@ -55,7 +55,9 @@
                             <tr>
                                 <th>Email</th>
                                 <th>Es administrador?</th>
-                                <th>Eliminar</th>
+                                <th>Fecha creación</th>
+                                <th>Último acceso</th>
+                                <th>Opciones</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -69,6 +71,8 @@
                                             <i class="fa fa-check"></i>
                                         @endif
                                     </td>
+                                    <td>{{ $permiso->creado }}</td>
+                                    <td></td>
                                     <td>
                                         <form action="{{url('permisos/'.$permiso->id)}}" method="post">
                                             {{csrf_field()}}

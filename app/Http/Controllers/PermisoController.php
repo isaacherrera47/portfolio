@@ -23,7 +23,7 @@ class PermisoController extends Controller
 
     public function check(Request $request) {
         $user_mail = $request->input('email');
-        if (Permiso::where('email', $user_mail)->first()) {
+        if ($permiso = Permiso::where('email', $user_mail)->first()) {
             return redirect('/')->withCookie('email',$user_mail);
         }
         return view('permisos.index',['error' => 1]);

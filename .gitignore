@@ -8,3 +8,5 @@ artisan
 composer.json
 .env
 public/.htaccess
+public/img/covers/
+public/img/slider/

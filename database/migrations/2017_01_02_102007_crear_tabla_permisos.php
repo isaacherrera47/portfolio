@@ -16,7 +16,7 @@ class CrearTablaPermisos extends Migration
             $table->increments('id');
             $table->string('email');
             $table->boolean('isAdmin');
-            $table->timestamps();
+            $table->timestamp('creado')->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

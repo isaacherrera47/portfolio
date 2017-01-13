@@ -20,7 +20,6 @@ class CrearTablaProyectos extends Migration
             $table->text('contenido');
             $table->smallInteger('prioridad');
             $table->string('lenguaje');
-            $table->timestamps();
         });
     }
 
