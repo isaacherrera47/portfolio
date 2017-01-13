@@ -21,5 +21,7 @@ Route::get('permisos/create','PermisoController@create');
 Route::post('permisos/','PermisoController@store');
 Route::delete('permisos/{permisos}','PermisoController@destroy');
 
+Route::get('accesos/{accesos}','AccesoController@index');
+
 
 Route::resource('proyectos','ProyectoController',['except'=> ['index','edit']]);

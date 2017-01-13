@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Acceso;
 use App\Permiso;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,8 @@ class PermisoController extends Controller
     public function check(Request $request) {
         $user_mail = $request->input('email');
         if ($permiso = Permiso::where('email', $user_mail)->first()) {
+            $acceso = new Acceso();
+            $permiso->accesos()->save($acceso);
             return redirect('/')->withCookie('email',$user_mail);
         }
         return view('permisos.index',['error' => 1]);
