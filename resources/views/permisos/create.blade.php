@@ -1,4 +1,4 @@
-@extends('base_admin')
+@extends('base_permisos')
 @section('content')
     <div class="row">
         <h1 class="text-center">Agregar un acceso al portafolio</h1>
@@ -49,8 +49,10 @@
                                         <i class="fa fa-check"></i>
                                     @endif
                                 </td>
-                                <td>{{ $permiso->creado }}</td>
-                                <td>{{ isset($permiso->accesos->first()->fecha) ? $permiso->accesos->first()->fecha : '-' }}</td>
+                                <td>{{ date('j M - g:i:s a',strtotime($permiso->creado)) }}</td>
+                                <td>
+                                    {{ isset($permiso->accesos->first()->fecha) ? date('j M - g:i:s a',strtotime($permiso->accesos->first()->fecha)) : '-' }}
+                                </td>
                                 <td>
                                     <form class="form-inline" action="{{url('permisos/'.$permiso->id)}}" method="post">
                                         {{csrf_field()}}

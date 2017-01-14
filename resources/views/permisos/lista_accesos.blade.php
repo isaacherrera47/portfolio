@@ -1,4 +1,4 @@
-@extends('base_admin')
+@extends('base_permisos')
 @section('title') <title>Resumen de accesos</title> @stop
 @section('content')
     <div class="page-header">
@@ -15,7 +15,7 @@
         <tbody>
         @foreach($permiso->accesos as $acceso)
             <tr>
-                <td class="text-center"><h4>{{date('l j, Y - g:i:s a',strtotime($acceso->fecha))}}</h4></td>
+                <td class="text-center"><h5>{{date('l j M - g:i:s a',strtotime($acceso->fecha))}}</h5></td>
             </tr>
         @endforeach
         </tbody>

@@ -1,4 +1,4 @@
-@extends('base_admin')
+@extends('base_permisos')
 @section('title') <title>Verifica tu acceso </title> @stop
 @section('content')
     <h1 class="text-center">Verifica con tu correo</h1>

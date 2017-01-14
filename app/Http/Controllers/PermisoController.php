@@ -14,7 +14,7 @@ class PermisoController extends Controller
         if (!($permiso = $this->isUserValid($request))) {
             return view('permisos.index');
         } elseif (!$permiso->isAdmin) {
-            return view('proyectos.index');
+            return redirect()->route('proyectos.index');
         }
 
         $permisos = Permiso::all();

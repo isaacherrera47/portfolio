@@ -14,6 +14,11 @@
                 </div>
                 {!! $proyecto->contenido !!}
             </div>
+            @if($permiso->isAdmin)
+                <a class="btn btn-primary" href="{{url('proyectos/'.$proyecto->id.'/edit')}}">
+                   <i class="fa fa-edit"></i> Actualizar información
+                </a>
+            @endif
         </div>
     </div>
 @endsection

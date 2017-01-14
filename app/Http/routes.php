@@ -12,7 +12,7 @@
 */
 
 
-Route::get('/', 'ProyectoController@index');
+Route::get('/', 'ProyectoController@index')->name('proyectos.index');
 
 //Rutas de permisos
 Route::get('permisos/check','PermisoController@index');
@@ -24,4 +24,4 @@ Route::delete('permisos/{permisos}','PermisoController@destroy');
 Route::get('accesos/{accesos}','AccesoController@index');
 
 
-Route::resource('proyectos','ProyectoController',['except'=> ['index','edit']]);
+Route::resource('proyectos','ProyectoController',['except'=> ['index']]);

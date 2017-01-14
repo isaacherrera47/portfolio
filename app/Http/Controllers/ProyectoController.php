@@ -36,7 +36,7 @@ class ProyectoController extends Controller
         if (!($permiso = $this->isUserValid($request))) {
             return view('permisos.index');
         } elseif (!$permiso->isAdmin) {
-            return view('proyectos.index');
+            return redirect()->route('proyectos.index');
         }
         return view('proyectos.create');
     }
@@ -58,7 +58,7 @@ class ProyectoController extends Controller
         $proyecto->save();
 
         $imagen = $request->file('portada');
-        $filename = $proyecto->id .'.'. $imagen->getClientOriginalExtension();
+        $filename = $proyecto->id . '.' . $imagen->getClientOriginalExtension();
         $imagenes = $request->file('slider');
         $proyecto->portada = $filename;
 
@@ -68,7 +68,7 @@ class ProyectoController extends Controller
         $imagen->move($ruta_portada, $filename);
         foreach ($imagenes as $img) {
             $name = $img->getClientOriginalName();
-            $img->move($ruta_slider,$name);
+            $img->move($ruta_slider, $name);
         }
 
         $proyecto->save();
@@ -82,12 +82,12 @@ class ProyectoController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request,$id)
+    public function show(Request $request, $id)
     {
         if (!($permiso = $this->isUserValid($request))) {
             return view('permisos.index');
         }
-        $proyecto = Proyecto::find($id);
+        $proyecto = Proyecto::findOrFail($id);
         $ignorar = array('..', '.');
         $files = scandir(base_path() . '/public/img/slider/' . $id);
         foreach ($files as $item) {
@@ -96,7 +96,19 @@ class ProyectoController extends Controller
             }
         }
 
-        return view('proyectos.detail', ['proyecto' => $proyecto, 'imagenes' => $imagenes,'permiso' => $permiso]);
+        return view('proyectos.detail', ['proyecto' => $proyecto, 'imagenes' => $imagenes, 'permiso' => $permiso]);
+    }
+
+    public function edit(Request $request, $id)
+    {
+        if (!($permiso = $this->isUserValid($request))) {
+            return view('permisos.index');
+        } elseif (!$permiso->isAdmin) {
+            return redirect()->route('proyectos.index');;
+        }
+
+        $proyecto = Proyecto::findOrFail($id);
+        return view('proyectos.edit', ['proyecto' => $proyecto]);
     }
 
 
@@ -109,7 +121,40 @@ class ProyectoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $proyecto = Proyecto::findOrFail($id);
+
+        $ruta_portada = public_path() . '/img/covers';
+        $ruta_slider = public_path() . '/img/slider/' . $proyecto->id;
+
+        $proyecto->nombre = $request->input('nombre');
+        $proyecto->extracto = $request->input('extracto');
+        $proyecto->contenido = $request->input('contenido');
+        $proyecto->prioridad = $request->input('prioridad');
+        $proyecto->lenguaje = $request->input('lenguaje');
+
+        if ($request->hasFile('portada')) {
+            Storage::disk('public')->delete('img/covers/' . $proyecto->portada);
+            $imagen = $request->file('portada');
+            $filename = $proyecto->id . '.' . $imagen->getClientOriginalExtension();
+            $imagen->move($ruta_portada, $filename);
+            $proyecto->portada = $filename;
+        }
+
+        if ($request->hasFile('slider')) {
+            $imagenes = $request->file('slider');
+            if (!$request->has('conservar_slider')) {
+                Storage::disk('public')->deleteDirectory('img/slider/' . $proyecto->id);
+            }
+
+            foreach ($imagenes as $img) {
+                $name = $img->getClientOriginalName();
+                $img->move($ruta_slider, $name);
+            }
+        }
+
+        $proyecto->save();
+
+        return redirect('/');
     }
 
     /**
@@ -122,18 +167,19 @@ class ProyectoController extends Controller
     {
         $proyecto = Proyecto::find($id);
 
-        Storage::disk('public')->delete('img/covers/'.$proyecto->portada);
-        Storage::disk('public')->deleteDirectory('img/slider/'.$id);
+        Storage::disk('public')->delete('img/covers/' . $proyecto->portada);
+        Storage::disk('public')->deleteDirectory('img/slider/' . $id);
 
         $proyecto->delete();
 
         return redirect('/');
     }
 
-    private function isUserValid(Request $request) {
+    private function isUserValid(Request $request)
+    {
         if ($request->hasCookie('email')) {
             $email = $request->cookie('email');
-            return Permiso::where('email',$email)->first();
+            return Permiso::where('email', $email)->first();
         }
         return false;
     }
