@@ -2,8 +2,7 @@
 @section('title') <title>Verifica tu acceso </title> @stop
 @section('content')
     <h1 class="text-center">Verifica con tu correo</h1>
-    <p>Al parecer, aún no tienes acceso a mi portafolio. Si ya tienes un acceso, por favor introduce tu email aquí
-        debajo.</p>
+    <p>Bienvenido a mi portafolio, si ya tienes un acceso, por favor introduce tu email aquí debajo.</p>
     <form action="{{url('permisos/check')}}" method="post">
         <div class="form-group">
             <label for="email">Correo electrónico</label>

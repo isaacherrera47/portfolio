@@ -13,6 +13,7 @@ class CrearTablaAcceso extends Migration
     public function up()
     {
         Schema::create('accesos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->unsignedInteger('permiso_id');
             $table->timestamp('fecha')->default(DB::raw('CURRENT_TIMESTAMP'));

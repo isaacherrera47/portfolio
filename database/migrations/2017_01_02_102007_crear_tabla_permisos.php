@@ -13,6 +13,7 @@ class CrearTablaPermisos extends Migration
     public function up()
     {
         Schema::create('permisos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('email');
             $table->boolean('isAdmin');

@@ -13,6 +13,7 @@ class CrearTablaProyectos extends Migration
     public function up()
     {
         Schema::create('proyectos', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre',100);
             $table->string('extracto');

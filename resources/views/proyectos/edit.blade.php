@@ -1,6 +1,6 @@
 @extends('base_proyectos')
 @section('content')
-    <h1 class="text-center">Agregar un nuevo proyecto</h1>
+    <h1 class="text-center">Editar un proyecto existente</h1>
     <form action="{{route('proyectos.update',['id' => $proyecto->id])}}" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         {{method_field('put')}}
