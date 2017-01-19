@@ -28,6 +28,11 @@
             <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
                 <div class="sidebar-content">
                     <h1 class="sidebar-heading"><a href="{{url('/')}}">Isaac Herrera</a></h1>
+                    <div class="row">
+                        <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0">
+                            <img src="{{asset('img/profile.JPG')}}" class="img-responsive img-circle">
+                        </div>
+                    </div>
                     <p class="sidebar-p">Artesano de software especializado en entorno web. <b>UI Designer</b> <br>
                         Originario de Coatzacoalcos,Veracruz. Actualmente en Mexicali.</p>
                     <p class="sidebar-p">EDAD: 22 años. <br>ESTATURA: 1.85m <br> PESO: 88kg</p>
