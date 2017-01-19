@@ -43,9 +43,11 @@
                             <li><a href="{{url('proyectos/create')}}">Agregar un proyecto</a></li>
                         @endif
                     </ul>
-                    <p class="social"><a href="mailto:isaacherrera47@gmail.com" data-animate-hover="pulse"
-                                         class="email"><i class="fa fa-envelope"></i></a><a
-                                href="http://manicbox.com.mx" target="_blank"><i class="fa fa-chrome"></i></a></p>
+                    <p class="social">
+                        <a href="mailto:isaacherrera47@gmail.com" data-animate-hover="pulse" class="email"><i class="fa fa-envelope"></i></a>
+                        <a href="http://manicbox.com.mx" target="_blank"><i class="fa fa-chrome"></i></a>
+                        <a href="http://www.linkedin.com/in/isaacherrera47" target="_blank"><i class="fa fa-linkedin"></i></a>
+                    </p>
                     <div class="copyright">
                         <p class="credit">Desarrollado con Laravel 5.2 y Bootstrap 3</p>
                     </div>
