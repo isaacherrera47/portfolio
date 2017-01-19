@@ -5,6 +5,7 @@
         <div class="col-lg-8">
             <div class="content-column-content">
                 <h1>{{$proyecto->nombre}}</h1>
+                <span class="label label-info">{{$proyecto->lenguaje}}</span>
                 <p class="lead">{{$proyecto->extracto}}</p>
                 <div id="main-slider">
                     @foreach($imagenes as $imagen)
