@@ -24,17 +24,11 @@
     </div>
     <div class="form-group">
         <label for="prioridad">Prioridad</label>
-        <select class="form-control" name="prioridad" id="prioridad">
-            <option value="1">Baja</option>
-            <option value="2">Media baja</option>
-            <option selected value="3">Media</option>
-            <option value="4">Importante</option>
-            <option value="5">Ver primero</option>
-        </select>
+        <input class="form-control" type="number" value="5" min="1" max="10" id="prioridad" name="prioridad">
     </div>
     <div class="form-group">
         <label for="lenguaje">Lenguaje de programación</label>
-        <input class="form-control" type="text" name="lenguaje" id="lenguaje" required>
+        <input  class="form-control" type="text" name="lenguaje" id="lenguaje" required>
     </div>
     <div class="form-group">
         <label for="texto_contenido">Contenido</label>

@@ -33,13 +33,7 @@
         </div>
         <div class="form-group">
             <label for="prioridad">Prioridad</label>
-            <select class="form-control" name="prioridad" id="prioridad">
-                <option value="1">Baja</option>
-                <option value="2">Media baja</option>
-                <option selected value="3">Media</option>
-                <option value="4">Importante</option>
-                <option value="5">Ver primero</option>
-            </select>
+            <input class="form-control" type="number" value="{{$proyecto->prioridad}}" min="1" max="10" id="prioridad" name="prioridad">
         </div>
         <div class="form-group">
             <label for="lenguaje">Lenguaje de programación</label>
@@ -51,7 +45,6 @@
             <textarea name="contenido" id="texto_contenido"></textarea>
         </div>
         <input type="hidden" id="contenido" value="{{$proyecto->contenido}}">
-        <input type="hidden" id="prioridad_hidden" value="{{$proyecto->prioridad}}">
         <button type="submit" class="btn btn-success">Actualizar</button>
     </form>
 @stop
@@ -59,7 +52,6 @@
     <script>
         $(document).ready(function () {
             $('#texto_contenido').trumbowyg('html', $('#contenido').val());
-            $("#prioridad").val($('#prioridad_hidden').val());
         })
     </script>
 @stop
