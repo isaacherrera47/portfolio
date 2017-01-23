@@ -1,12 +1,12 @@
 @extends('base_permisos')
 @section('title') <title>Verifica tu acceso </title> @stop
 @section('content')
-    <h1 class="text-center">Verifica con tu correo</h1>
-    <p>Bienvenido a mi portafolio, si ya tienes un acceso, por favor introduce tu email aquí debajo.</p>
+    <h1 class="text-center">Verifica tu acceso</h1>
+    <p>Bienvenido a mi portafolio, si ya tienes un acceso, por favor introdúcelo aquí abajo</p>
     <form action="{{url('permisos/check')}}" method="post">
         <div class="form-group">
             <label for="email">Correo electrónico</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo aquí"
+            <input type="email" class="form-control" id="email" name="email" placeholder="Introduce tu correo/acceso aquí"
                    required>
         </div>
         <button type="submit" class="btn btn-success">Revisar</button>
